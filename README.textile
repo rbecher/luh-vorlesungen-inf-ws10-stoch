@@ -1,0 +1,62 @@
+h2. Vorlesungsmitschriften für Stochastik A 
+Leibniz Universität Hannover
+Prof. Dr. Grübel
+Wintersemester 2010/2011
+<hr />
+
+h3. Wie komme ich an diese Mitschrift ran?
+
+# Installiere dir Git
+# @git clone git://github.com/rbecher/luh-vorlesungen-inf-ws10-stoch.git@
+# Fertig!
+
+h3. Wie mache ich daraus ein Pdf?
+
+# Installiere dir eine LaTeX-Distribution
+# Installiere dir pdflatex (empfohlen)
+# Kompiliere dir die Hauptdatei, z.B. mit @pdflatex stochastik.tex && pdfopen --file stochastik.pdf@
+
+h3. Muss das sein mit dem selbst kompilieren?
+
+* Eigentlich ja
+* ...
+* na gut. In mehr oder weniger regelmäßigen Abständen wird eine "Pdf-Version":http://github.com/rbecher/luh-vorlesungen-inf-ws10-stoch/raw/master/mitschrift.pdf gepusht ...
+
+h3. Gibt es noch andere Mitschriften in diesem Semester?
+
+Klar, werden im "Hauptrepository":http://github.com/rbecher/luh-vorlesungen-inf-ws10 aufgeführt.                                            
+
+h3. Gibt es noch alte Mitschriften, an denen man sich orientieren kann?
+
+Sicher, letztes Jahr im Wintersemester habe ich eine ganz ähnlich gelagerte Aktion gestartet, das findet ihr auch in meinen github-repositories, und zwar "hier":http://github.com/rbecher/luh-vorlesungen-inf-ws09-stoch
+
+h3. Reicht es, die Mitschrift zu lesen, um zu bestehen?
+
+# Nö
+# Nein
+# ...
+# Leider immer noch nicht
+# Hier eine erprobte Lösung dieses Debakels:
+## Geh zur Vorlesung
+## Schreib mit oder mach dir zumindest Notizen
+## Bereite den Stoff nach (hier kannst du diese Mitschrift zu Rate ziehen)
+## Geh zur Übung
+## Bearbeite die Übung
+## Gib deine Lösung der Übung ab
+## Bestehe die Prüfung
+## Alles gut!
+
+h3. Wie kann ich mitmachen/mitarbeiten/helfen?
+
+* Du kannst dieses Projekt forken (z.B. hier auf github) und Verbesserungen einarbeiten
+** danach am besten mit pull requests arbeiten, siehe auch "Github Guides":http://github.com/guides
+* Du kannst Patches einschicken
+* Ich habe auch eine Amazon-Wunschliste :D
+
+h3. Awesome!
+
+Indeed
+
+h3. Wer hat hier mitgearbeitet?
+
+Siehe Datei @authors.tex@
