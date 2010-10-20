@@ -1,0 +1,109 @@
+%% Basierend auf einer TeXnicCenter-Vorlage von Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,twoside,12pt]{article}                
+
+\usepackage[ngerman]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage{setspace}
+\usepackage{cancel} % strikethrough in math mode
+\usepackage[osf]{mathpazo}	% Mathpazo package includes accompanying math fonts
+
+\usepackage{lmodern} %Type1-Schriftart f\"ur nicht-englische Texte
+             
+%% Packages f\"ur Grafiken & Abbildungen %%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %%Zum Laden von Grafiken
+\usepackage{graphics}
+%\usepackage{subfig} %%Teilabbildungen in einer Abbildung
+%\usepackage{tikz} %%Vektorgrafiken aus LaTeX heraus erstellen
+%\usepackage{qtree}
+
+%% Packages f\"ur Formeln %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+%% Zeilenabstand %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+\singlespacing        %% 1-zeilig (Standard)
+
+%% Andere Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{a4wide} %%Kleinere Seitenr\"ander = mehr Text pro Zeile.
+\usepackage{fancyhdr} %%Fancy Kopf- und Fußzeilen
+\usepackage{fancybox}
+\usepackage{cite}
+\usepackage{tocbibind}
+
+\usepackage[hyperindex,colorlinks,bookmarks,urlcolor=blue]{hyperref}    
+
+%% FancyHeader Definitionen %%%%%%%%%%%%%%%%a%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\lhead{Stchastik A, WS 2009}
+%\chead{}
+%\rhead{Mitschrift}
+
+%\pagestyle{fancy}{
+%	\fancyhead[LO,RE]{\rightmark}
+%	\fancyhead[RO,LE]{\leftmark}
+%	\fancyfoot[C]{\thepage}
+%}                                
+
+
+\include{optionen.tex}
+\include{layout.tex}
+\include{pdf_options.tex}
+                                      
+\title{Stochastik Wintersemester 2009\\Leibniz Universit\"at Hannover\\Vorlesungsmitschrift}
+
+\author{Dozent: \href{mailto:rgrubel@stochastik.uni-hannover.de}{Prof. Dr. R. Gr\"ubel}\\ \vspace{1em} \\
+Mitschrift von\\
+\input{authors.tex}}
+
+\begin{document}
+\pagestyle{empty}
+\maketitle
+\begin{abstract}
+	Diese Mitschrift wird erstellt im Zuge der Vorlesung \href{http://www.stochastik.uni-hannover.de/ws2010.html}{Stochastik A} im Wintersemester 2010 an der \href{http://www.uni-hannover.de}{Leibniz Universit\"at Hannover}. Obwohl mit gro\ss er Sorgfalt geschrieben, werden sich sicherlich Fehler einschleichen. Diese bitte ich zu melden, damit sie korrigiert werden k\"onnen. Ihr k\"onnt euch dazu an jeden der genannten Autoren (mit Ausnahme des Dozenten) wenden.
+	
+	Dieses Skript wird prim\"ar \"uber \href{http://github.com/rbecher/luh-vorlesungen-inf-ws10-stoch}{Github} verteilt und "`gepflegt"'. Dort kann man es auch forken, verbessern und dann (idealerweise) ein "`Pull Request"' losschicken. Siehe auch  \href{http://github.com/guides}{Github Guides}. Auch wenn ihr gute Grafiken zur Verdeutlichung beitragen k\"onnt, d\"urft ihr diese gerne schicken oder selbst einf\"ugen (am besten als \LaTeX -geeignete Datei (Tikz, SVG, PNG, \dots)).
+	
+	\textbf{Hinweis}: Es wird o.B.d.A. davon abgeraten, die Vorlesung zu vers\"aumen, nur weil eine Mitschrift angefertigt wird! Selbiges gilt f\"ur den \"ubungsbetrieb! Stochastik besteht ihr nur, wenn ihr auch zu der Veranstaltung geht!
+\end{abstract}
+
+\newpage % \newpage works far better than \pagebreak
+
+\tableofcontents
+
+%Part: F\"ur große Themenbl\"ocke (z.B. Einf\"uhrung, Kombinatorik, etc)
+%Section: F\"ur Abschnitte (z.B. Mengen, von Mengen zu anderen Mengen, etc)
+%Subsection: Beweise, S\"atze, Lemmata
+
+\newpage
+
+\pagestyle{fancy}
+\addtolength{\headheight}{\baselineskip}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}}
+%\rhead{\leftmark\\\rightmark}
+\fancyhead[LE,RO]{Mitschrift Stochastik A, WS 2010}
+\fancyhead[LO,RE]{\leftmark\\\rightmark}
+% Here comes content
+
+\include{vorlesung01}                 
+
+%\appendix
+
+%\part{Anhang}
+
+%\renewcommand\refname{Literaturangaben}
+
+%\nocite{*}
+
+%\bibliography{books}
+
+%\bibliographystyle{output}
+
+\end{document}              
