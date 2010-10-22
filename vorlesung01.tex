@@ -75,10 +75,10 @@ Für relative Häufigkeiten gilt
 
 \section{Definition: Kolmogorov-Axiome}
 
-Gegeben seien ein (nicht leerer) Ergebnisraum $\Omega$ und ein System $\mathfrak{A}$ von Teilmengen von $\Omega$, das System der Ereignisse (bei endlichen oder abzählbar unendlichen $\Omega$ ist $\mathfrak{A}$ einfach die Potenzmenge $\wp(\Omega)$, also die Menge \textbf{aller} Teilmengen von $\Omega$).
-Eine \textbf{Wahrscheinlichkeit} oder besser ein \textbf{Wahrscheinlichkeitsmaß} (WMaß) ist eine Abbildung $P:\mathfrak{A} \rightarrow \mathbb{R}$ mit folgenden Eigenschaften:
+Gegeben seien ein (nicht leerer) Ergebnisraum $\Omega$ und ein System $\mathcal{A}$ von Teilmengen von $\Omega$, das System der Ereignisse (bei endlichen oder abzählbar unendlichen $\Omega$ ist $\mathcal{A}$ einfach die Potenzmenge $\wp(\Omega)$, also die Menge \textbf{aller} Teilmengen von $\Omega$).
+Eine \textbf{Wahrscheinlichkeit} oder besser ein \textbf{Wahrscheinlichkeitsmaß} (WMaß) ist eine Abbildung $P:\mathcal{A} \rightarrow \mathbb{R}$ mit folgenden Eigenschaften:
 \begin{description}
- \item[(A1)] $P(A)\geq 0\ \forall A \in \mathfrak{A},\ P(\Omega)=1$ ($P$ steht für ``probability'')
+ \item[(A1)] $P(A)\geq 0\ \forall A \in \mathcal{A},\ P(\Omega)=1$ ($P$ steht für ``probability'')
  \item[(A2)] Für alle paarweise disjunkten Ereignisse $A_1,A_2,A_3,\ldots$ gilt
  \begin{displaymath}
 	P(\bigcup_{i=1}^\infty A_i) = P(\sum_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)
@@ -87,7 +87,7 @@ Eine \textbf{Wahrscheinlichkeit} oder besser ein \textbf{Wahrscheinlichkeitsmaß
 \end{description}
 
 \section{Wahrscheinlichkeitsraum}
-Das Tripel $(\Omega,\mathfrak{A},P)$ nennt man einen \textbf{Wahrscheinlichkeitsraum}.
+Das Tripel $(\Omega,\mathcal{A},P)$ nennt man einen \textbf{Wahrscheinlichkeitsraum}.
 
 \noindent Es folgen nun erste Folgerungen aus den Axiomen.
 
@@ -96,10 +96,10 @@ Das Tripel $(\Omega,\mathfrak{A},P)$ nennt man einen \textbf{Wahrscheinlichkeits
 \renewcommand{\labelitemi}{\alph}
 \begin{enumerate}
 	\item $P(\emptyset) = 0$
-	\item $P(A) \leq 1 \forall A \in \mathfrak{A}$
-	\item $P(A^c) = 1 - P(A) \forall A \in \mathfrak{A}$ (Übergang zum \textbf{Gegenereignis})
+	\item $P(A) \leq 1 \forall A \in \mathcal{A}$
+	\item $P(A^c) = 1 - P(A) \forall A \in \mathcal{A}$ (Übergang zum \textbf{Gegenereignis})
 	\item $A \subset B \Rightarrow P(A) \leq P(B)$ (Monotonie)
-	\item $P(A_1 + A_2 + \ldots + A_n) = P(A_1) + P(A_2) + \ldots + P(A_n)$ für paarweise disjunkte $A_1,\ldots,A_n \in \mathfrak{A}$ (endliche Additivität)
+	\item $P(A_1 + A_2 + \ldots + A_n) = P(A_1) + P(A_2) + \ldots + P(A_n)$ für paarweise disjunkte $A_1,\ldots,A_n \in \mathcal{A}$ (endliche Additivität)
 	\item Boolesche Ungleichung: $P(A_1 \cup \ldots \cup A_n) \leq P(A_1) + \ldots + P(A_n)$
 	\item Die \textbf{Siebformel}
 	\[

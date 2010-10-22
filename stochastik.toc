@@ -1,5 +1,5 @@
 \select@language {ngerman}
-\contentsline {section}{Inhaltsverzeichnis}{2}{section*.1}
+\contentsline {section}{Inhaltsverzeichnis}{2}{section*.2}
 \contentsline {part}{I\hspace {1em}Ein mathematisches Modell f\IeC {\"u}r Zufallsexperimente}{3}{part.1}
 \contentsline {section}{\numberline {1}Beispiel - W\IeC {\"u}rfelwurf}{3}{section.1}
 \contentsline {section}{\numberline {2}Was ist Wahrscheinlichkeit?}{3}{section.2}
