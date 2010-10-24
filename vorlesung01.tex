@@ -112,12 +112,12 @@ Das Tripel $(\Omega,\mathcal{A},P)$ nennt man einen \textbf{Wahrscheinlichkeitsr
 	\item Mit (A2) und $A_j=\emptyset \forall j$ erhält man $P(\emptyset) = \sum_{i=1}^\infty P(\emptyset)$. 
 	Wegen $P(\emptyset) \in \mathbb{R}$ bedeutet dies $P(\emptyset) = 0$.
 	\item Verwende (A2) mit $A_j=\emptyset$ für $j>k$ und dann Teil (a):
-	\begin{eqnarray*}
-		P(A_1 \cup \ldots \cup A_k) = \\
-		P(A_1 \cup \ldots \cup A_k \cup \emptyset \cup \emptyset \ldots) = \\
-		P(A_1) + \ldots + P(A_k) + P(\emptyset) + \ldots = \\
+	\begin{align*}
+		P(A_1 \cup \ldots \cup A_k) & =
+		P(A_1 \cup \ldots \cup A_k \cup \emptyset \cup \emptyset \ldots) \\ & = 
+		P(A_1) + \ldots + P(A_k) + P(\emptyset) + \ldots \\ & =
 		P(A_1) + \ldots + P(A_k)
-	\end{eqnarray*}
+	\end{align*}
 	\item $1 = P(\Omega) = P(A + A^c) = P(A) + P(A^c)$
 	\item $B = A + B \cap A^c$\\
 	$P(B) = P(A) + (P(B\cap A^c) \geq P(A)$
