@@ -27,12 +27,11 @@ Das Ereignis ``Es kommt eine 6 heraus'' wird (in Mengenschreibweise) beschrieben
 Solche Ereignisse, die nur aus einem Element bestehen, nennt man \textit{Elementarereignisse}.
 Aussagen über das Ergebnis können \textit{logisch kombiniert} werden. Auf der Ereignisseite (also in Teilmengen von $\Omega$) wird dies zu Mengenoperationen. Werden zwei Ereignisse $A, B$ durch Mengen repräsentiert, so ist
 
-\begin{eqnarray*}
-A^c \text{ das Ereignis ``$A$ tritt nicht ein''}\\
-A \cap B \text{ das Ereignis "'Beide Ereignisse treten ein"'}\\
-A \cup B \text{ eines der Ereignisse tritt ein}
-\ldots
-\end{eqnarray*}
+\begin{align*}
+A^c &:\text{ das Ereignis, dass $A$ nicht eintritt}\\
+A \cap B &: \text{ das Ereignis, dass $A$ \textit{und} $B$ eintreten}\\
+A \cup B &: \text{ das Ereignis, dass (mindestens) eines der Ereignisse $A,B$ eintritt}
+\end{align*}
 
 Hier kommt eine Grafik über eine Matrix .... oder ein Foto der Tafel
 A = Pasch\\
@@ -42,9 +41,9 @@ A geschnitten B
 Man kann dies mit mehr als zwei Ereignissen machen.
 Wenn $A,B,C$ Ereignisse sind, wodurch wird ''genau eins davon tritt ein'' beschrieben?
 
-\begin{equation}
+\begin{equation*}
 A \cap B^c \cap C^c + A^c \cap  B \cap C^c + A^c \cap B^c \cap C
-\end{equation}
+\end{equation*}
 % TODO entweder die Eqn doppeln oder auf das + hinweisen wegen disjunkter Mengen
 
 \section{Was ist Wahrscheinlichkeit?}
@@ -66,12 +65,12 @@ Kann über Wetten formalisiert werden.
 \noindent \textbf{Anmerkung:} Diese beiden Auffassungen sind nicht disjunkt!
 
 Für relative Häufigkeiten gilt
-\begin{eqnarray*}
-0 \leq \frac{1}{n} N_n(A) \leq 1 \\
-\frac{1}{n} N_n(\Omega) = 1 \\
-\frac{1}{n} N_n(\emptyset) = 0\\
-\frac{1}{n} N_n(A+B) = \frac{1}{n} N_n(A) + \frac{1}{n} N_n(B)
-\end{eqnarray*}
+\begin{align*}
+0 \leq \frac{1}{n} N_n(A) & \leq 1 \\
+\frac{1}{n} N_n(\Omega) & = 1 \\
+\frac{1}{n} N_n(\emptyset) & = 0\\
+\frac{1}{n} N_n(A+B) & = \frac{1}{n} N_n(A) + \frac{1}{n} N_n(B)
+\end{align*}
 
 \section{Definition: Kolmogorov-Axiome}
 
@@ -96,8 +95,8 @@ Das Tripel $(\Omega,\mathcal{A},P)$ nennt man einen \textbf{Wahrscheinlichkeitsr
 \renewcommand{\labelitemi}{\alph}
 \begin{enumerate}
 	\item $P(\emptyset) = 0$
-	\item $P(A) \leq 1 \forall A \in \mathcal{A}$
-	\item $P(A^c) = 1 - P(A) \forall A \in \mathcal{A}$ (Übergang zum \textbf{Gegenereignis})
+	\item $P(A) \leq 1 \ \forall A \in \mathcal{A}$
+	\item $P(A^c) = 1 - P(A) \ \forall A \in \mathcal{A}$ (Übergang zum \textbf{Gegenereignis})
 	\item $A \subset B \Rightarrow P(A) \leq P(B)$ (Monotonie)
 	\item $P(A_1 + A_2 + \ldots + A_n) = P(A_1) + P(A_2) + \ldots + P(A_n)$ für paarweise disjunkte $A_1,\ldots,A_n \in \mathcal{A}$ (endliche Additivität)
 	\item Boolesche Ungleichung: $P(A_1 \cup \ldots \cup A_n) \leq P(A_1) + \ldots + P(A_n)$
@@ -109,19 +108,22 @@ Das Tripel $(\Omega,\mathcal{A},P)$ nennt man einen \textbf{Wahrscheinlichkeitsr
 
 \subsection{Beweis}
 \begin{enumerate}
-	\item Mit (A2) und $A_j=\emptyset \forall j$ erhält man $P(\emptyset) = \sum_{i=1}^\infty P(\emptyset)$. 
+	\item[1.] Mit (A2) und $A_j=\emptyset \ \forall j$ erhält man $P(\emptyset) = \sum_{i=1}^\infty P(\emptyset)$. 
 	Wegen $P(\emptyset) \in \mathbb{R}$ bedeutet dies $P(\emptyset) = 0$.
-	\item Verwende (A2) mit $A_j=\emptyset$ für $j>k$ und dann Teil (a):
+	\item[5.] Verwende (A2) mit $A_j=\emptyset$ für $j>k$ und dann Teil (a):
 	\begin{align*}
 		P(A_1 \cup \ldots \cup A_k) & =
 		P(A_1 \cup \ldots \cup A_k \cup \emptyset \cup \emptyset \ldots) \\ & = 
 		P(A_1) + \ldots + P(A_k) + P(\emptyset) + \ldots \\ & =
 		P(A_1) + \ldots + P(A_k)
 	\end{align*}
-	\item $1 = P(\Omega) = P(A + A^c) = P(A) + P(A^c)$
-	\item $B = A + B \cap A^c$\\
-	$P(B) = P(A) + (P(B\cap A^c) \geq P(A)$
-	\item bei $n=2$: $P(A \cup B) \neq P(A) + P(B)$
+	\item[3.] $1 = P(\Omega) = P(A + A^c) = P(A) + P(A^c)$
+	\item[4.] 
+	\begin{alignat*}{3}
+	    &B    && = A    && + B \cap A^c\\
+	    &P(B) && = P(A) && + \underbrace{P(B\cap A^c)}_{\geq 0 \ \text{nach (A1)}} \geq P(A)
+	\end{alignat*}
+	\item[7.] bei $n=2$: $P(A \cup B) \neq P(A) + P(B)$
 \end{enumerate}
 
 
