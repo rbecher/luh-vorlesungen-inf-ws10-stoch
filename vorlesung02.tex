@@ -1,0 +1,196 @@
+\part{Laplace-Experimente, elementare Kombinatorik}
+
+Unser Modell für ein Zufallsexperiment ist ein sogenannter \emph{WRaum}
+$(\Omega,\mathcal{A},\mathcal{P})$, wobei $\Omega$ die möglichen
+\emph{Ergebnisse} des Experiments enthält, $\mathcal{A}$ ein System von
+Teilmengen von $\Omega$ ist, die \emph{Ereignisse} (für uns in der Regel die
+Potenzmenge $\mathcal{P}(\Omega)$), und $P$ eine Funktion, die jedem Ereignis
+$A$ eine Wahrscheinlichkeit $P(A)$ zuordnet.
+
+Spezialfall Laplace-Experimente:
+
+\begin{displaymath}
+\#\Omega < \infty, \ \mathcal{A} = \mathcal{P}(\Omega), \ P(A) =
+\frac{\#A}{\#\Omega}
+\end{displaymath}
+
+(vielleicht schon bekannt: Wahrscheinlichkeit als Anzahl der günstigen
+Ergebnisse durch die Anzahl der möglichen Ergebnisse)
+
+Ergibt sich aus bzw. ist äquivalent zu der Aussage, dass alle
+Elementarereignisse dieselbe Wahrscheinlichkeit haben. Typische Anwendung:
+Werfen eines symmetrischen Gegenstandes (Würfel, Münze, etc.)
+
+
+\subsection{Beispiel: Würfelwurf}
+
+Ein Würfel wird zweimal geworfen. Mit welcher Wahrscheinlichkeit erhält man
+Augensumme 7 bzw. 6?
+
+Wir betrachten das Laplace-Experiment über
+\begin{align*}
+\Omega &= \{ (i,j) : 1 \leq i,h \leq 6 \} = \{ 1,\ldots,6 \} \times
+\{ 1,\ldots,6 \} \\
+\#\Omega &= 36 \\
+A_7 &= \{ (i,j) \in \Omega : i+j = 7\} = \{ (1,6), (2,5), (3,4), (4,3), (5,2),
+(6,1) \} \\
+P(A_7) &= \frac{6}{36} = \frac{1}{6} \\
+A_6 &= \{ (1,5), (2,4), (3,3), (4,2), (5,1) \} \\
+P(A_6) &= \frac{5}{36} ( < P(A_7))
+\end{align*}
+
+
+\section{Die Kunst des Zählens}
+
+Bei Laplace-Experimenten läuft die Bestimmung von Wahrscheinlichkeiten also
+auf die ``Kunst des Zählens'' (elementare Kombinatorik) hinaus. Zwei zentrale
+Regeln:
+
+\begin{enumerate}
+\item Gibt es eine bijektive Abbildung von $A$ nach $B$, so gilt $\#A = \#B$
+\item Sind $A$ und $B$ disjunkt, so gilt $\#(A \cup B) = \#A + \#B$
+\end{enumerate}
+
+Regel 2 lässt sich auf mehr als zwei Mengen verallgemeinern: Sind
+$A_1,\ldots,A_n$ disjunkt, so gilt $\#(A_1 + \ldots + A_n) = \#A_1 + \#A_2 +
+\ldots + \#A_n$.
+
+Wichtige Folgerung: Im falle $C \subset A \times B$ mit $\#\{ y : (x,y) \in C
+\} = k$ fuer alle $x \in A$ gilt $\#C = k \cdot \#A$.
+
+
+\subsection{Beispiel: Hörsaal}
+
+Hörsaal mit $n$ Reihen mit jeweils $m$ Plätzen. In jeder Reihe sind $k$
+Plätze besetzt. Man hat insgesamt $n \cdot k$ Zuhörer.
+
+Spezialfall: Bei $C = A \times B$ erhält man $\#(A \times B) = \#A \cdot \#B$.
+
+
+\section{Vier Standardfamilien}
+
+Permutationen/Kombinationen mit/ohne Wiederholung.
+
+\subsection{Permutationen mit Wiederholung}
+
+Wieviele Moeglichkeiten gibt es $m$ Objekte (Kugeln) auf $n$ Plätze (Urnen) zu
+verteilen?
+
+Man hat $n$ Möglichkeiten für das 1. Objekt, wieder $n$ fuer das 2. etc.,
+also insgesamt $n^m$ Möglichkeiten. Formal:
+
+\[ \{ (i_1,\ldots,i_m) : i_j \in \{ 1,\ldots,n \} \text{ für } j = 1,\ldots,m
+\} = n^m \]
+
+Dabei bedeutet das Tupel $(i_1,\ldots,i_m)$, dass Objekt $j$ in Urne $i_j$
+gelegt wird.
+
+Allgemeiner: Bei endlichen Mengen $A$ und $B$ bezeichnet $B^A$ die Menge aller
+Funktionen $f: A \to B$, also: $\#(B^A) = (\#B)^{\#A}$.
+
+
+\subsection{Permutationen ohne Wiederholung}
+
+Was passiert, wenn man nur \emph{injektive} Funktionen zulässt? Klar: Man
+braucht $\#B \geq \#A$. Dies setzen wir voraus.
+
+Man hat $n$ Möglichkeiten für das erste Objekt. Ist dieses ausgeteilt, so
+bleiben $n-1$ Möglichkeiten fuer das zweite Objekt (Regel 2). Sind die ersten
+beiden ausgeteilt, so bleiben $n-2$ für das dritte Objekt etc., man hat also
+
+\[ n \cdot (n-1) \cdot (n-2) \cdot (n-3) \cdot \ldots \cdot (n-m+1) =
+\frac{n!}{(n-m)!} = (n)_m \]
+
+Möglichkeiten.
+Spezialfall: $A=B$. Dann ist jedes injektive $f$ automatisch surjektiv, also
+bijektiv. Allgemein:
+
+\begin{align*}
+\#\{ f \in B^A : f \text{ injektiv} \} &= \frac{(\#B)!}{(\#B - \#A)!} \\
+A=B : \#\{ \underbrace{f: A \to A : f \text { bijektiv}}_{ \substack{\text {
+\scriptsize Die Elemente dieser Menge nennt}\\ \text{\scriptsize man \emph
+{Permutationen} von $A$ }}} \} &= (\#A)!
+\end{align*}
+
+Standardanwendung: Kartenmischen. Bei $32$ Karten gibt es $32!$ Möglichkeiten
+fuer das Mischergebnis.
+
+
+\subsection{Kombination ohne Wiederholung}
+
+Formal: Wir führen auf $B^A$ eine Äquivalenzrelation ein:
+
+\[ f \sim g :\Leftrightarrow \exists \pi: A \to A \text{ bijektiv}: f = g \circ
+\pi \]
+\begin{alignat*}{3}
+(&f \sim f  \text{ ?}&\quad
+&\text{wegen } f = f \circ \pi \text{ mit } \pi = id \\
+&f \sim f \Rightarrow g \sim f \text{ ? }&
+&f = g \circ \pi \text{ impliziert } g = f \circ \pi^{-1} \\
+&f \sim g, g \sim f \Rightarrow f \sim h \text{ ?}&
+&f = g \circ \pi, g = h \circ \sigma \Rightarrow f = h \circ \sigma \circ \pi)
+\end{alignat*}
+
+Führt auf Zerlegung von $\{ f \in B^A : f \text{ injektiv}$ in
+Äquivalenzklassen. Wie viele gibt es? Alle haben dieselbe Anzahl von
+Elementen, nämlich $m!$ (bei $\#A = m$).
+
+
+\subsubsection{Beispiel: Lotto}
+
+Beim Lotto 6 aus 49 erhält man zunächst ein Tupel $(i_1,\ldots,i_6)$ mit $i_j
+\in \{1,\ldots,49\}$ und $i_j \neq i_k$ fuer $j \neq k$ (eine injektive
+Abbildung von $A = \{1,\ldots,6\}$ in $B = \{1,\ldots,49\}$). Dies wird
+aufsteigend angeordnet:
+
+\[ k_1,\ldots,k_6 \text{ mit } k_1 < \ldots < k_6 \]
+
+Es gibt $6!$ Möglichkeiten.
+
+Formal gilt bei injektiven Funktionen $f : f \circ \pi = f \circ \sigma
+\Rightarrow \pi = \sigma$, d.h. die Anzahl der Elemente einer Äquivalenzklasse
+ist gleich der Anzahl der Permutationen (bij: Selbstabbildungen) der Menge
+$A$, also $(\#A)!$. Also:
+
+\[ \#\{ f \in B^A : f \text{ injektiv} \} = \frac{(\#B)!}{(\#B - \#A)!} \]
+
+Jeweils $(\#A)!$ Elemente werden zu einer Äquivalenzklasse zusammengefasst,
+d.h. die gesuchte Anzahl ist
+
+\[ \frac{(\#B)!}{(\#B - \#A)! \cdot (\#A)!} = {\#B \choose \#A} \]
+
+Alternativ:
+
+\[ \{ (i_1,\ldots,i_m): 1 \leq i_1 < i_2 < \ldots < i_m \leq n \} = {n \choose
+m} \]
+
+Spezialfall: Wieviele Teilmengen vom Umfang $m$ hat eine Menge von $n$
+Elementen? Antwort: $n \choose m$.
+
+
+\subsection{Kombinationen mit Wiederholung}
+
+\[ \{(i_1,\ldots,i_m): 1 \leq i_1 \leq i_2 \leq \ldots \leq i_m \leq n \} =
+{n+m-1 \choose m} \]
+
+\textbf{Beweis mit Regel 1:} Wir können die Menge der $m$-Kombinationen aus
+$n$ \emph{mit} Widerholung bijektiv abbilden auf die Menge der
+$m$-Kombinationen aus $n+m-1$ \emph{ohne} Wiederholung durch
+
+\[ (i_1,\ldots,i_m) \mapsto (i_1, i_2+1, i_3+2, \ldots, i_m + m-1) \]
+
+
+\subsection{Zusammenfassende Tabelle}
+
+\begin{center}
+\begin{tabular}{l|c|c}
+    ~         & Permutationen       & Kombinationen     \\
+    \cline{2-3}
+    mit Wdh.  & $n^m$               & $n+m-1 \choose m$ \\
+    ohne Wdh. & $\frac{n!}{(n-m)!}$ & $n \choose m$     \\
+\end{tabular}
+\end{center}
+
+{\scriptsize Grundmengen $A,B$ mit $\#A=n$, $\#B=m$.}
+
+

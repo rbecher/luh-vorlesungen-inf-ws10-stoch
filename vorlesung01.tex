@@ -80,7 +80,7 @@ Eine \textbf{Wahrscheinlichkeit} oder besser ein \textbf{Wahrscheinlichkeitsmaß
  \item[(A1)] $P(A)\geq 0\ \forall A \in \mathcal{A},\ P(\Omega)=1$ ($P$ steht für ``probability'')
  \item[(A2)] Für alle paarweise disjunkten Ereignisse $A_1,A_2,A_3,\ldots$ gilt
  \begin{displaymath}
-	P(\bigcup_{i=1}^\infty A_i) = P(\sum_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)
+    P(\bigcup_{i=1}^\infty A_i) = P(\sum_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)
  \end{displaymath}
  Dies nennt man ``$\sigma$-Additivität''.
 \end{description}
@@ -94,37 +94,34 @@ Das Tripel $(\Omega,\mathcal{A},P)$ nennt man einen \textbf{Wahrscheinlichkeitsr
 % TODO: Enumerate soll mit kleinen Buchstaben arbeiten
 \renewcommand{\labelitemi}{\alph}
 \begin{enumerate}
-	\item $P(\emptyset) = 0$
-	\item $P(A) \leq 1 \ \forall A \in \mathcal{A}$
-	\item $P(A^c) = 1 - P(A) \ \forall A \in \mathcal{A}$ (Übergang zum \textbf{Gegenereignis})
-	\item $A \subset B \Rightarrow P(A) \leq P(B)$ (Monotonie)
-	\item $P(A_1 + A_2 + \ldots + A_n) = P(A_1) + P(A_2) + \ldots + P(A_n)$ für paarweise disjunkte $A_1,\ldots,A_n \in \mathcal{A}$ (endliche Additivität)
-	\item Boolesche Ungleichung: $P(A_1 \cup \ldots \cup A_n) \leq P(A_1) + \ldots + P(A_n)$
-	\item Die \textbf{Siebformel}
-	\[
-		\mathsf{P}\left(\bigcup_{i=1}^nA_i\right) = \sum_{k=1}^n(-1)^{k+1}\!\!\sum_{I\subseteq\{1,\dots,n\},\atop |I|=k}\!\!\!\!\mathsf{P}\left(\bigcap_{i\in I}A_i\right)
-	\]
+    \item $P(\emptyset) = 0$
+    \item $P(A) \leq 1 \ \forall A \in \mathcal{A}$
+    \item $P(A^c) = 1 - P(A) \ \forall A \in \mathcal{A}$ (Übergang zum \textbf{Gegenereignis})
+    \item $A \subset B \Rightarrow P(A) \leq P(B)$ (Monotonie)
+    \item $P(A_1 + A_2 + \ldots + A_n) = P(A_1) + P(A_2) + \ldots + P(A_n)$ für paarweise disjunkte $A_1,\ldots,A_n \in \mathcal{A}$ (endliche Additivität)
+    \item Boolesche Ungleichung: $P(A_1 \cup \ldots \cup A_n) \leq P(A_1) + \ldots + P(A_n)$
+    \item Die \textbf{Siebformel}
+    \[
+        \mathsf{P}\left(\bigcup_{i=1}^nA_i\right) = \sum_{k=1}^n(-1)^{k+1}\!\!\sum_{I\subseteq\{1,\dots,n\},\atop |I|=k}\!\!\!\!\mathsf{P}\left(\bigcap_{i\in I}A_i\right)
+    \]
 \end{enumerate}
 
 \subsection{Beweis}
 \begin{enumerate}
-	\item[1.] Mit (A2) und $A_j=\emptyset \ \forall j$ erhält man $P(\emptyset) = \sum_{i=1}^\infty P(\emptyset)$. 
-	Wegen $P(\emptyset) \in \mathbb{R}$ bedeutet dies $P(\emptyset) = 0$.
-	\item[5.] Verwende (A2) mit $A_j=\emptyset$ für $j>k$ und dann Teil (a):
-	\begin{align*}
-		P(A_1 \cup \ldots \cup A_k) & =
-		P(A_1 \cup \ldots \cup A_k \cup \emptyset \cup \emptyset \ldots) \\ & = 
-		P(A_1) + \ldots + P(A_k) + P(\emptyset) + \ldots \\ & =
-		P(A_1) + \ldots + P(A_k)
-	\end{align*}
-	\item[3.] $1 = P(\Omega) = P(A + A^c) = P(A) + P(A^c)$
-	\item[4.] 
-	\begin{alignat*}{3}
-	    &B    && = A    && + B \cap A^c\\
-	    &P(B) && = P(A) && + \underbrace{P(B\cap A^c)}_{\geq 0 \ \text{nach (A1)}} \geq P(A)
-	\end{alignat*}
-	\item[7.] bei $n=2$: $P(A \cup B) \neq P(A) + P(B)$
+    \item[1.] Mit (A2) und $A_j=\emptyset \ \forall j$ erhält man $P(\emptyset) = \sum_{i=1}^\infty P(\emptyset)$.
+    Wegen $P(\emptyset) \in \mathbb{R}$ bedeutet dies $P(\emptyset) = 0$.
+    \item[5.] Verwende (A2) mit $A_j=\emptyset$ für $j>k$ und dann Teil (a):
+    \begin{align*}
+        P(A_1 \cup \ldots \cup A_k) & =
+        P(A_1 \cup \ldots \cup A_k \cup \emptyset \cup \emptyset \ldots) \\ & =
+        P(A_1) + \ldots + P(A_k) + P(\emptyset) + \ldots \\ & =
+        P(A_1) + \ldots + P(A_k)
+    \end{align*}
+    \item[3.] $1 = P(\Omega) = P(A + A^c) = P(A) + P(A^c)$
+    \item[4.]
+    \begin{alignat*}{3}
+        &B    && = A    && + B \cap A^c\\
+        &P(B) && = P(A) && + \underbrace{P(B\cap A^c)}_{\geq 0 \ \text{nach (A1)}} \geq P(A)
+    \end{alignat*}
+    \item[7.] bei $n=2$: $P(A \cup B) \neq P(A) + P(B)$
 \end{enumerate}
-
-
-\textbf{Hinweis:} Jetzt seid ihr so weit in dieser Mitschrift gekommen, bitte gleicht diese mit eurer handschriftlichen Mitschrift ab und sendet mir eure Verbesserungen. Gerne auch gleich in \LaTeX\ ;-)
