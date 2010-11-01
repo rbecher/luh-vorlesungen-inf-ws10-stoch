@@ -55,7 +55,7 @@ Regel 2 lässt sich auf mehr als zwei Mengen verallgemeinern: Sind
 $A_1,\ldots,A_n$ disjunkt, so gilt $\#(A_1 + \ldots + A_n) = \#A_1 + \#A_2 +
 \ldots + \#A_n$.
 
-Wichtige Folgerung: Im falle $C \subset A \times B$ mit $\#\{ y : (x,y) \in C
+Wichtige Folgerung: Im Falle $C \subset A \times B$ mit $\#\{ y : (x,y) \in C
 \} = k$ fuer alle $x \in A$ gilt $\#C = k \cdot \#A$.
 
 
@@ -73,30 +73,25 @@ Permutationen/Kombinationen mit/ohne Wiederholung.
 
 \subsection{Permutationen mit Wiederholung}
 
-Wieviele Moeglichkeiten gibt es $m$ Objekte (Kugeln) auf $n$ Plätze (Urnen) zu
-verteilen?
-
-Man hat $n$ Möglichkeiten für das 1. Objekt, wieder $n$ fuer das 2. etc.,
-also insgesamt $n^m$ Möglichkeiten. Formal:
+Wieviele Moeglichkeiten gibt es $m$ Objekte (Kugeln) auf $n$ Plätze (Urnen)
+zu verteilen? Man hat $n$ Möglichkeiten für das 1. Objekt, wieder $n$ fuer
+das 2. etc., also insgesamt $n^m$ Möglichkeiten. Formal:
 
 \[ \{ (i_1,\ldots,i_m) : i_j \in \{ 1,\ldots,n \} \text{ für } j = 1,\ldots,m
 \} = n^m \]
 
 Dabei bedeutet das Tupel $(i_1,\ldots,i_m)$, dass Objekt $j$ in Urne $i_j$
-gelegt wird.
-
-Allgemeiner: Bei endlichen Mengen $A$ und $B$ bezeichnet $B^A$ die Menge aller
-Funktionen $f: A \to B$, also: $\#(B^A) = (\#B)^{\#A}$.
+gelegt wird. Allgemeiner: Bei endlichen Mengen $A$ und $B$ bezeichnet $B^A$
+die Menge aller Funktionen $f: A \to B$, also: $\#(B^A) = (\#B)^{\#A}$.
 
 
 \subsection{Permutationen ohne Wiederholung}
 
 Was passiert, wenn man nur \emph{injektive} Funktionen zulässt? Klar: Man
-braucht $\#B \geq \#A$. Dies setzen wir voraus.
-
-Man hat $n$ Möglichkeiten für das erste Objekt. Ist dieses ausgeteilt, so
-bleiben $n-1$ Möglichkeiten fuer das zweite Objekt (Regel 2). Sind die ersten
-beiden ausgeteilt, so bleiben $n-2$ für das dritte Objekt etc., man hat also
+braucht $\#B \geq \#A$. Dies setzen wir voraus. Man hat $n$ Möglichkeiten
+für das erste Objekt. Ist dieses ausgeteilt, so bleiben $n-1$ Möglichkeiten
+fuer das zweite Objekt (Regel 2). Sind die ersten beiden ausgeteilt, so
+bleiben $n-2$ für das dritte Objekt etc., man hat also
 
 \[ n \cdot (n-1) \cdot (n-2) \cdot (n-3) \cdot \ldots \cdot (n-m+1) =
 \frac{n!}{(n-m)!} = (n)_m \]
@@ -131,7 +126,7 @@ Formal: Wir führen auf $B^A$ eine Äquivalenzrelation ein:
 &f = g \circ \pi, g = h \circ \sigma \Rightarrow f = h \circ \sigma \circ \pi)
 \end{alignat*}
 
-Führt auf Zerlegung von $\{ f \in B^A : f \text{ injektiv}$ in
+Führt auf Zerlegung von $\{ f \in B^A : f \text{ injektiv}\}$ in
 Äquivalenzklassen. Wie viele gibt es? Alle haben dieselbe Anzahl von
 Elementen, nämlich $m!$ (bei $\#A = m$).
 
@@ -145,12 +140,10 @@ aufsteigend angeordnet:
 
 \[ k_1,\ldots,k_6 \text{ mit } k_1 < \ldots < k_6 \]
 
-Es gibt $6!$ Möglichkeiten.
-
-Formal gilt bei injektiven Funktionen $f : f \circ \pi = f \circ \sigma
-\Rightarrow \pi = \sigma$, d.h. die Anzahl der Elemente einer Äquivalenzklasse
-ist gleich der Anzahl der Permutationen (bij: Selbstabbildungen) der Menge
-$A$, also $(\#A)!$. Also:
+Es gibt $6!$ Möglichkeiten. Formal gilt bei injektiven Funktionen $f : f
+\circ \pi = f \circ \sigma \Rightarrow \pi = \sigma$, d.h. die Anzahl der
+Elemente einer Äquivalenzklasse ist gleich der Anzahl der Permutationen
+(bij: Selbstabbildungen) der Menge $A$, also $(\#A)!$. Also:
 
 \[ \#\{ f \in B^A : f \text{ injektiv} \} = \frac{(\#B)!}{(\#B - \#A)!} \]
 
