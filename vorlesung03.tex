@@ -4,17 +4,16 @@
 
 Mit welcher W. kommt exakt 7-mal ``Kopf''?
 $0$ sei Wappen, $1$ sei Kopf.
+Das Modell ist offenbar ein Laplace-Experiment über $\{0,1\}^{10}$, also ist 
+\[\Omega=\{0,1\}^{10} = \{ (i_1,\ldots,i_{10}) : i_j \in \{0,1\}, j = 1,\ldots,10 \}\]
 
-Das Modell ist offenbar ein Laplace-Experiment über $\{0,1\}^10$, also ist 
-\[\Omega=\{0,1\}^10 = \{ (i_1,\ldots,i_10) : i_j \in \{0,1\}, j = 1,\ldots,10 \}\]
-
-$(1,1,1,1,1,0,0,0,0,0)$ ist das Ereignis/Ergebnis ``Die ersten 5 Würfe ergeben ``Kopf'', alle späteren ``Wappen'' ''
+$(1,1,1,1,1,0,0,0,0,0)$ ist das Ereignis/Ergebnis: ``Die ersten 5 Würfe ergeben Kopf, alle späteren Wappen''
 
 \noindent \textbf{Allgemein gilt}: 
-$\omega = (\i_1,\ldots,i_10)$ heißt, dass im $j$-ten Versuch das mit $i_j$ kodierte Ergebnis kommt.\\
+$\omega = (\i_1,\ldots,i_{10})$ heißt, dass im $j$-ten Versuch das mit $i_j$ kodierte Ergebnis kommt.\\
 \textbf{Nächster Schritt}:
 Identifiziere das interessierende Ereignis als Teilmenge $A \subset \Omega$:
-\[ A = \{ \omega=(i_1,\ldots,i_10) \in \Omega : i_1+\ldots + i_10 = 7 \} \]
+\[ A = \{ \omega=(i_1,\ldots,i_{10}) \in \Omega : i_1+\ldots + i_{10} = 7 \} \]
 \textbf{In Worten}:
 Alle $10$-Tupel, die an $7$ Positionen eine $1$ und an $3$ Positionen eine $0$ haben.
 
@@ -24,9 +23,9 @@ Klar ist: $|\Omega| = 2^{10} = 1024$ ($\Omega$ besteht aus den $10$-Permutatione
 
 \noindent Die nächste Frage heißt: 
 Wie viele Elemente hat $A$?\\
-Die $7$ $1$en müssen auf die $10$ möglichen Positionen (ohne Wiederholung) verteiltwerden.
-$7$-Kombination ohne Wiederholung mit $10$ ELementen:
-\[ 10 \choose 7 = \frac{10!}{7!3!} = \frac{10\cdot 9 \cdot 6}{3 \cdot 2} = 5 \cdot 3 \cdot 8 = 120 \]
+Die $7$ $1$en müssen auf die $10$ möglichen Positionen (ohne Wiederholung) verteilt werden.
+$7$-Kombination ohne Wiederholung mit $10$ Elementen:
+\[ {10 \choose 7} = \frac{10!}{7!3!} = \frac{10\cdot 9 \cdot 6}{3 \cdot 2} = 5 \cdot 3 \cdot 8 = 120 \]
 Also \[ P(A) = \frac{120}{1024} = \frac{15}{128} \]
 
 \subsection{Beispiel: Geburtstagsproblem}
@@ -34,24 +33,29 @@ Also \[ P(A) = \frac{120}{1024} = \frac{15}{128} \]
 Wie groß ist die W. dafür, dass von $n$ Personen (mindestens) zwei am gleichen Tag Geburtstag haben?
 Vernünftige Einschränkungen an $n$: $n \geq 2, n \leq 365$ (Wir ignorieren Schaltjahre, Zwillinge, etc.)
 
-Wie gehen wieder von einem Laplace-Experiment aus, und zwar über
+Wir gehen wieder von einem Laplace-Experiment aus, und zwar über
 \[ \Omega = \{ (i_1,\ldots,i_n) : i_j = \{ 1,\ldots,365 \} \} \]
-Dabei bedeutet $i_j=t$, dass die $j$-te Person am $k$-ten Tag des Jahres Geburtstag hat.
-$|\Omega| = 365^n$ ($n$ Permutationen mit Wiederholung aus einer Menge mit $365$ Elementen.
+Dabei bedeutet $i_j=k$, dass die $j$-te Person am $k$-ten Tag des Jahres Geburtstag hat.
+
+\begin{center}
+$|\Omega| = 365^n$ 
+
+($n$ Permutationen mit Wiederholung aus einer Menge mit $365$ Elementen)
+\end{center}
 
 \textbf{Nächster Schritt} (wieder):
 Identifiziere $A$ als Teilmenge von $\Omega$.
-\[ A = \{ (i_1,\ldots,i_n) \in \Omega : \exists j_k=\{1,\ldots,n\}\text{ mit }j\neq k \cap i_j=i_k  \} \]
+\[ A = \{ (i_1,\ldots,i_n) \in \Omega : \exists j,k \in \{1,\ldots,n\}\text{ mit }j\neq k \text{ und } i_j=i_k  \} \]
 
 Hier nützlich: Übergang zum Komplementär-Ereignis
-\[ A^c = \{ (i_1,\ldots,i_n) \in \Omega : i_j \neq i_k,\ j \neq k \}\]
+\[ A^c = \{ (i_1,\ldots,i_n) \in \Omega : i_j \neq i_k \text{ für } j \neq k \}\]
 
 $A^c$ ist also die Menge der $n$-Permutationen aus einer Menge von $365$ Elementen, nun also \textbf{ohne} Wiederholung:
-$365 \cdot 364 \cdot \ldots \cdot (365 - n +1)$
+$365 \cdot 364 \cdot \ldots \cdot (365 - n +1)$.
 Also
 \[ P(A) = 1-P(A^c) = 1 - \frac{365 \cdot 364 \cdot \ldots \cdot (365 - n +1)}{365^n} \]
 
-Man sieht an der Formel, dass $P(A)$ mitwachsenden $n$ größer wird.
+Man sieht an der Formel, dass $P(A)$ mit wachsendem $n$ größer wird.
 Interessanterweise erhält man ab $n=23$ einen Wert $P(A) \geq \frac{1}{2}$.
 
 \subsection{Beispiel: Wichteln}
@@ -60,9 +64,11 @@ $n$ Kinder verpacken jeweils ein Geschenk.
 Diese werden zufällig an die Kinder verteilt: jedes Kind erhält also exakt ein Geschenk.
 
 Wie groß ist nun die Wahrscheinlichkeit, dass dies ``ohne Tränen funktioniert'', so dass kein Kind sein eigenes Geschenk erhält?
-$\Omega$ sei die Menge aller $n$-Permutationen ohne Wiederholung aus $n$ Interpretationen.
-$\omega = (i_1,\ldots,i_n)$ mit $i_j=k$ bedeutet, dass dsa $j$-te Kind Geschenk mit der Nummer $k$ erhält.
-Also $|\Omega| = n!$
+$\Omega$ sei die Menge aller $n$-Permutationen ohne Wiederholung aus $n$. Interpretationen:
+$\omega = (i_1,\ldots,i_n)$ mit $i_j=k$ bedeutet, dass das $j$-te Kind Geschenk mit der Nummer $k$ 
+(das vom $k$-ten Kind verpackt wurde) erhält.
+Also 
+\[ |\Omega| = n! \]
 
 $A$ ist nun die Menge der fixpunktfreien Permutationen. Also ist $A^c$ die Menge aller Permutationen, die mindestens einen Fixpunkt haben.
 
@@ -72,14 +78,14 @@ Wir suchen
 
 Klar: \[ A^c = \bigcup_{j=1}^n B_j \]
 
-Nebenrechnung: $|B_j = (n-1)!$
+Nebenrechnung: $|B_j| = (n-1)!$
 
 Schade: Die $B_j$ sind nicht disjunkt.
 
 
-\[ A^c = \{ (i_1,\ldots,i_n) \in \Omega:\ \exists j \in \{1,\ldots, n\} \text{ mit } i_j=j \]
+\[ A^c = \{ (i_1,\ldots,i_n) \in \Omega:\ \exists j \in \{1,\ldots, n\} \text{ mit } i_j=j \} \]
 
-Typisches Anwendungsgebiet fürdie Siebformel: % TODO Href dorthin
+Typisches Anwendungsgebiet für die Siebformel: % TODO Href dorthin
 Für $n=2$ gilt also z.B.
 \[ P(B_1 \cup B_2) = P(B_1) + P(B_2) - P(B_1\cap B_2) \]
 
@@ -108,8 +114,8 @@ Mit welcher Wahrscheinlichkeit erhält man Ereignis $A$, einen ``Flush'' (alle h
 \[P(A) = 4 \cdot \frac{{13 \choose 5}}{{52 \choose 5}} \] (Möglichkeiten für die Farbe mal die Möglichkeit, aus der Farbe 5 auszusuchen durch Gesamtmenge)
 
 \[ P(B) = \frac{13 \cdot 48}{{52 \choose 5}} \]
-(Auswahl des Kartenwerts mal Möglichkeit für die 5. karte(???) durch Gesamtmenge)
+(Auswahl des Kartenwerts mal Möglichkeit für die 5. Karte durch Gesamtmenge)
 
 \[ \frac{P(A)}{P(B)} = \frac{33}{4} \]
 
-Also ....
+Ein Flush ist also ca. acht mal wahrscheinlicher als ein Vierling.
