@@ -2,26 +2,30 @@
 
 \section{Motivation}
 Was ist die Wahrscheinlichkeit für einen Pasch (= zwei gleiche Ergebnisse) beim Wurf zweier Würfel.
-Wie ändert sich diese Wahrscheinlichkeit, wenn man dsa als Zusatzinfo die Augensumme hat?
+Wie ändert sich diese Wahrscheinlichkeit, wenn man als Zusatzinformation die Augensumme hat?
 
 \textbf{Erinnerung}:
 In der frequentistischen Sichtweise haben Wahrscheinlichkeiten etwas mit relativen Häufigkeiten zu tun.
-Bei $n$ Wiederholungen sei $N_n(A)$ die Auswahl der Versuche, in denen $A$ eintritt, $ \frac{1}{n}N_n(A) $ ist die relative Häufigkeit von $A$.
+Bei $n$ Wiederholungen sei $N_n(A)$ die Anzahl der Versuche, in denen $A$ eintritt, $ \frac{1}{n}N_n(A) $ ist die relative Häufigkeit von $A$.
 
-Es liegt nahe, die \textbf{bedingte} Wahrscheinlichkeit ``von $B$ gegeben $A$'' in Bezug zu bringen mit 
+Es liegt nahe, die \textbf{bedingte} Wahrscheinlichkeit ``von $B$ gegeben $A$'' in Bezug zu bringen mit
 \[
-	\frac{N_n(A\cap B)}{N_n(A)} = \frac{\frac{1}{n}N_n(A\cap B)}{\frac{1}{n}N_n(A)}  
+	\frac{N_n(A\cap B)}{N_n(A)} = \frac{\frac{1}{n}N_n(A\cap B)}{\frac{1}{n}N_n(A)}
 \]
 
 \section{Definition: Bedingte Wahrscheinlichkeit}
 
 Ist $A$ ein Ereignis mit $P(A)>0$, so heißt
 \begin{equation}
-	P(B|A) = \frac{P(A \cap B)}{P(A)}
+	P(B|A) := \frac{P(A \cap B)}{P(A)}
 \end{equation}
 die \textbf{bedingte Wahrscheinlichkeit von B unter A}.
 
 \subsection{Beispiel bei Augensumme 6}
+
+A: ``Die Augensumme ist 6''
+
+B: ``Es ist ein Pasch''
 
 \[
 	P(B|A) = \frac{P(A \cap B)}{P(A)} = \frac{ \frac{1}{36} }{ \frac{5}{36} } = \frac{1}{5}
@@ -34,11 +38,11 @@ Es folgen drei einfache Rechenregeln zum Umgang mit bedingten Wahrscheinlichkeit
 \begin{description}
 	\item[Die Multiplikationsregel] Sind $A_1,\ldots,A_n$ Ereignisse mit $P(A_1\cap\ldots\cap A_n)>0$, so gilt
 		\begin{equation}
-			P(A_1\cap\ldots\cap A_n) = P(A_1)\cdot P(A_2|A_1) \cdot P(A_3|A_1 \cap A_2) \cdot \ldots \cdot P(A_n|A_1\cap\ldots\cap A_n)
+			P(A_1\cap\ldots\cap A_n) = P(A_1)\cdot P(A_2|A_1) \cdot P(A_3|A_1 \cap A_2) \cdot \ldots \cdot P(A_n|A_1\cap\ldots\cap A_{n-1})
 		\end{equation}
 		In Worten: Die W. eines Durchschnitts lässt sich als Produkt von bedingten W. schreiben.\\
 		Der Beweis ist einfach und es gab ihn in der Vorlesung. Wer mag einen Link raussuchen?
-	\item[Gesetz von der totalen W.] Es sei $A_1,\ldots,A_n$ eine \textbf{Ereignispartition}, d.h. % TODO Bild
+	\item[Gesetz von der totalen W.] Es sei $A_1,\ldots,A_n$ eine \emph{Ereignispartition}, d.h. % TODO Bild
 		$A_1,\ldots,A_n$ paarweise disjunkt, die Vereinigung ist ganz $\Omega$. Dann gilt für jedes Ereignis $B$
 		\begin{equation}
 			P(B) = \sum_{i=1}^n P(B|A_i)\cdot P(A_i)
@@ -53,17 +57,25 @@ Es folgen drei einfache Rechenregeln zum Umgang mit bedingten Wahrscheinlichkeit
 
 \subsection{Beispiel}
 
-Ein bestimmter medizinischer Test ist zu $95\%$ effektiv beim Erkennen einer bestimmten Krankheit, d.h. dass die Krankheit mit einer W. von $0.05$ richtig erkannt wird. 
-Allerdings liefert er auch bei $1\%$ der gesunden Personen einen ``falschen Alarm''!
+Ein bestimmter medizinischer Test ist zu $95\%$ effektiv beim Erkennen einer bestimmten Krankheit, liefert allerdings bei $1\%$ der gesunden Personen einen ``falschen Alarm''!
 Angenommen, $0,5\%$ der Bevölkerung haben diese Krankheit.
-Mit welcher W. hat jemand die Krankheit, wenn der Test dies behauptet (``der Test ist positiv'')? 
+Mit welcher W. hat jemand die Krankheit, wenn der Test dies behauptet (``der Test ist positiv'')?
 
-Wie stets bei Textaufgaben müssen diese Informationen zunächst in Formeln transformiert werden. Es sei $A$ das Ereignis ``Person hat die Krankheit'' und $B$ das Ereignis ``Test ist positiv''. Damit gilt
-\[P(B|A) = 0.95\] und
-\[P(B|A^c) = 0.01, P(A) = 0.005\]
+Wie stets bei Textaufgaben müssen diese Informationen zunächst in Formeln transformiert werden. Wir setzen
+\begin{align*}
+    A &: \text{``Person hat die Krankheit''} \\
+    B &: \text{``Test ist positiv''}
+\end{align*}
+
+Damit gilt
+\begin{alignat*}{4}
+    &P(B|A)   && =  0.95  \\
+    &P(B|A^c) && =  0.01  \\
+    &P(A)     && =  0.005
+\end{alignat*}
 Es geht um $P(A|B)$.
 
-Wir wenden die Bayes-Formel \eqref{def:bayes} mit der Partition $A,A^c$.
+Wir wenden die Bayes-Formel \eqref{def:bayes} an mit der Partition $A,A^c$.
 \begin{eqnarray*}
 	P(A|B)	&= \frac{P(A)\cdot P(B|A)}{P(A)\cdot P(B|A) + P(A^c)\cdot P(B|A^c)} \\
 			&= \frac{0.005 \cdot 0.95}{0.005 \cdot 0.95 + 0.995 \cdot 0.01} \\
@@ -90,23 +102,28 @@ Eine Familie $A_i,\ i\in I$ heißt unabhängig, wenn für jede endliche Teilmeng
 \end{equation}
 
 Bei $I=\{1,2,3\}$ muss also gelten:
-\begin{eqnarray*}
-	P(A_1 \cap A_2) = P(A_1)\cdot P(A_2) \\
-	P(A_1 \cap A_3) = P(A_1)\cdot P(A_3) \\
-	P(A_2 \cap A_3) = P(A_2)\cdot P(A_3) \\
-	P(A_1 \cap \cap A_2 \cap A_3) = P(A_1)\cdot P(A_2)\cdot P(A_3)
-\end{eqnarray*}
+\begin{align*}
+	P(A_1 \cap A_2) &= P(A_1)\cdot P(A_2) \\
+	P(A_1 \cap A_3) &= P(A_1)\cdot P(A_3) \\
+	P(A_2 \cap A_3) &= P(A_2)\cdot P(A_3) \\
+	P(A_1 \cap A_2 \cap A_3) &= P(A_1)\cdot P(A_2)\cdot P(A_3)
+\end{align*}
 
 \subsection{Beispiel: Funktionieren von Netzwerken}
 
-Wir gehen von $5$ Zwischen-Komponenten (Knoten) aus, die unabhängig voneinander mit W. $P$ funktionieren.\\
+Wir gehen von $5$ Zwischen-Komponenten (Knoten) aus, die unabhängig voneinander mit W. $p$ funktionieren.\\
 Hier sollte ein Bild hin ;-)\\
 
-Mit welcher W. funktioniert dieses Netzwerk in dem Sinne, dass es einen ununterbrochenen Pfad von $Quelle$ zum $Ziel$ gibt.\\
-$A_i$ sei das Ereignis, dass Komponente $i,\ i=1,\ldots,5$ funktioniert.\\
-$B_1$ unterer Pfad passierbar, $B_2$ oberer Pfad passierbar.
+Mit welcher W. funktioniert dieses Netzwerk in dem Sinne, dass es einen ununterbrochenen Pfad von $Quelle$ zum $Ziel$ gibt?\\
 
-Klar: 
+\begin{alignat*}{3}
+&A_i &&: \text{Komponente $i$ funktioniert}, i = 1,\ldots,5 \\
+&B   &&: \text{Das Gesamtnetz funktioniert} \\
+&B_1 &&: \text{Unterer Pfad passierbar} \\
+&B_2 &&: \text{Oberer Pfad passierbar}
+\end{alignat*}
+
+Klar:
 $
 	B_1 = A_4 \cap A_5
 $, also
@@ -118,17 +135,20 @@ Auch klar:
 $
 	B_2 = (A_1 \cap A_2) \cup (A_1 \cap A_3)
 $, also
-\[
-	P(B_2) = P((A_1\cap A_2) \cup (A_1\cap A_3))  = P(A_1 \cap A_2) + P(A_1 \cap A_3) - P(A_1\cap A_2\cap A_3) = p^2 + p^2 - p^3
-\]
+\begin{align*}
+	P(B_2) &= P((A_1\cap A_2) \cup (A_1\cap A_3))  \\
+               &= P(A_1 \cap A_2) + P(A_1 \cap A_3) - P(A_1\cap A_2\cap A_3) \\
+               &= p^2 + p^2 - p^3
+\end{align*}
 
 Insgesamt:
-\[
-	P(B) = P(B_1 \cup B_2) = P(B_1) + P(B_2) - P(B1 \cap B_2)
-\]
-\[
-	P(B1 \cap B_2) = P\left( A_4 \cap A_5 \cap ((A_1\cap A_2) \cup (A_1\cap A_3)) \right) = \ldots
-\]
+\begin{alignat*}{3}
+	P(B)            &= \ && P(B_1 \cup B_2) = P(B_1) + P(B_2) - P(B1 \cap B_2) \\
+	P(B_1 \cap B_2) &= \ && P\left( A_4 \cap A_5 \cap ((A_1 \cap A_2) \cup (A_1 \cap A_3)) \right) \\
+                        &= \ && P(A_4 \cap A_5 \cap A_1 \cap A_2) + P(A_4 \cap A_5 \cap A_1 \cap A_3) - \\
+                        &  \ && P(A_1 \cap A_2 \cap A_3 \cap A_4 \cap A_5) \\
+                        &= \ && p^4 + p^4 - p^5
+\end{alignat*}
 Damit:
 \[
 	P(B) = p^2 + 2p2 - p^3 - (2p^4-p^5) = p^2(3-p-2p^2+p^3)
